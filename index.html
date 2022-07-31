@@ -7,26 +7,43 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="author" content="Carlos Rangel" />
 
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+
+        <script src="https://kit.fontawesome.com/76d65dc6ab.js" crossorigin="anonymous"></script>
+
         <link rel="stylesheet" href="./index.css" />
     </head>
 
     <body>
 
-
+        
         <header>
-            <h1>Find your film</h1>
+
+            <img src="/img/movie-posters.jpg" alt="Movie posters photography by Andre Tan"/>
+
+            <section>
+                <h1>Find your film</h1>
+    
+                <nav>
+                    <a href="./watchlist.html">My Watchlist</a>
+                </nav>
+            </section>
+
         </header>
 
 
-        <form role="search" id="form">
-            <input type="search" id="query" name="q" placeholder="Search" aria-label="Search through site content">
+        <form role="search" id="searchForm">
+            
+            <input type="search" id="query" name="q" placeholder="Search for a movie" aria-label="Search for movies"><i class="fa-solid fa-magnifying-glass"></i>
             <button>Search</button>
         </form>
 
         <div id="movies"></div>
 
 
-        <script src="./index.js" type="module"></script>
+        <script src="./index.js" type="module"></>
     </body>
 
 </html>
