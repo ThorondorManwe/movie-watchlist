@@ -35,15 +35,34 @@
 
 
         <form role="search" id="searchForm">
+
+            <div class="right-inner-addon input-container">
+                <i class="fa fa-search"></i>
+                <input type="text"
+                       id="query"
+                       class="form-control"
+                       name="q"
+                       aria-label="Search for movies"
+                       placeholder="Search for a movie" />
+            </div>
             
-            <input type="search" id="query" name="q" placeholder="Search for a movie" aria-label="Search for movies"><i class="fa-solid fa-magnifying-glass"></i>
             <button>Search</button>
+            
+            <!-- <input type="search" id="query" name="q" placeholder="Search for a movie" aria-label="Search for movies"><i class="fa-solid fa-magnifying-glass"></i> -->
         </form>
 
-        <div id="movies"></div>
+        <div id="movies">
+            <!-- <i class="fas fa-camera fa-2x"></i> -->
+            
+
+            <div id="default">
+                <i class="fa fa fa-film main-film"></i>
+                <p>Start exploring</p>
+            </div>
+        </div>
 
 
-        <script src="./index.js" type="module"></>
+        <script src="./index.js" type="module"></script>
     </body>
 
 </html>

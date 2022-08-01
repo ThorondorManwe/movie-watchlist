@@ -37,38 +37,59 @@ function sendMovieToLocalStorage() {
     watchlistButtons.forEach(button => {
         button.addEventListener('click', function(e) {
             /* console.log(e.currentTarget); */
-            console.log(e.currentTarget.parentElement);
-            console.log(e.currentTarget.parentElement.children);
-            console.log(e.currentTarget.parentElement.children[0]);
-
-            const id = e.currentTarget.parentElement.id;
-            const imgUrl = e.currentTarget.parentElement.children[0].currentSrc;
-
-            //const title = e.currentTarget.parentElement.children[1].outerHTML;
-            const titleText = e.currentTarget.parentElement.children[1].textContent;
-            const rating = e.currentTarget.parentElement.children[2].textContent;
-            const runtime = e.currentTarget.parentElement.children[4].textContent;
-            const genre = e.currentTarget.parentElement.children[5].textContent;
-            const plot = e.currentTarget.parentElement.children[6].textContent;
-            /* console.log(e.currentTarget.parentElement.outerHTML); */
-            const element = e.currentTarget.outerHTML;
+            console.log(e.currentTarget.parentElement); // infoMovie2
+            console.log(e.currentTarget.parentElement.parentElement);    // infoMovie donde están los datos
             
+            const generalMovieDiv = e.currentTarget.parentElement.parentElement.parentElement;
+            const infoMovieDiv = e.currentTarget.parentElement.parentElement;
+            const infoMovie1Div = infoMovieDiv.children[0];
+            const infoMovie2Div =  e.currentTarget.parentElement;
+            const id = generalMovieDiv.id;
+            const imgUrl = generalMovieDiv.children[0].currentSrc;
+
+            const titleText = infoMovie1Div.children[0].textContent;
+            const rating = infoMovie1Div.children[1].textContent;
+            
+            const runtime = infoMovie2Div.children[0].textContent;
+            const genre = infoMovie2Div.children[1].textContent;
+            
+            const plot = infoMovieDiv.children[2].textContent; 
+    
+            
+            /* const html = `
+            <div class="movie" id="${id}" >
+                <img src="${imgUrl}" />
+                <p>${titleText}</p>
+                <p>${rating}</p>
+                <button class="removeFromWatchlist">Remove</button>
+                <p>${runtime}</p>
+                <p>${genre}</p>
+                <p>${plot}</p>
+            </div>
+            `; */
+
             const html = `
             <div class="movie" id="${id}" >
-            <img src="${imgUrl}" />
-            <p>${titleText}</p>
-            <p>${rating}</p>
-            <button class="removeFromWatchlist">Remove</button>
-            <p>${runtime}</p>
-            <p>${genre}</p>
-            <p>${plot}</p>
+                <img class="posterImg" src="${imgUrl}" />
+                <div class="infoMovie">
+                    <div class="infoMovie1">
+                        <p class="movieTitle">${titleText}</p>
+                        <p class="rating"><i class="fa fa fa-star"></i> ${rating}</p>
+                    </div>
+                    <div class="infoMovie2">
+                        <p class="runtime">${runtime}</p>
+                        <p class="genre">${genre}</p>
+                        <button class="removeFromWatchlist"><i class="fa fa fa-minus"></i> Remove</button>
+                    </div>
+                    <p class="plot">${plot}</p>
+                </div>
             </div>
             `;
             
-            console.log(html);
+            console.log(generalMovieDiv);
             localStorage.setItem(id, JSON.stringify(html));
-            if(localStorage.getItem(id) !== null) {
-            }
+            /* if(localStorage.getItem(id) !== null) {
+            } */
         });
     });
 }
@@ -89,13 +110,19 @@ function buscaMovie(id) {
             // Todo 3. Presenta las películas en el front end
             html += `
             <div class="movie" id="${movieID}" >
-                <img src="${poster}" />
-                <p>${title}</p>
-                <p>${rating}</p>
-                <button class="toWatchlist">Watchlist</button>
-                <p>${runtime}</p>
-                <p>${genre}</p>
-                <p>${plot}</p>
+                <img class="posterImg" src="${poster}" />
+                <div class="infoMovie">
+                    <div class="infoMovie1">
+                        <p class="movieTitle">${title}</p>
+                        <p class="rating"><i class="fa fa fa-star"></i> ${rating}</p>
+                    </div>
+                    <div class="infoMovie2">
+                        <p class="runtime">${runtime}</p>
+                        <p class="genre">${genre}</p>
+                        <button class="toWatchlist"><i class="fa fa fa-plus"></i> Watchlist</button>
+                    </div>
+                    <p class="plot">${plot}</p>
+                </div>
             </div>
             `;
 

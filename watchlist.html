@@ -7,6 +7,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="author" content="Carlos Rangel" />
 
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+
+        <script src="https://kit.fontawesome.com/76d65dc6ab.js" crossorigin="anonymous"></script>
+
         <link rel="stylesheet" href="./index.css" />
     </head>
 
@@ -26,7 +32,15 @@
 
         </header>
 
-        <div id="fromLocalStorage"></div>
+        <div id="fromLocalStorage">
+
+            <div id="watchlistEmpty">
+                <p>Your watchlist is looking a little empty...</p>
+                <p id="add-movies"><a href="./index.html"><i class="fa fa fa-plus"></i> Let’s add some movies!</a></p>
+            </div>
+
+
+        </div>
 
 
         <script src="./watchlist.js" type="module"></script>

@@ -12,10 +12,15 @@ const moviesWatchlist = document.getElementById('fromLocalStorage');
 
 // Recorre Local Storage y Pone valores en html
 function forEachKey(htmlDiv) {
+    /* htmlDiv.innerHTML = ""; */
+    if(localStorage.length > 0) {
+        htmlDiv.innerHTML = "";
+    }
     for (let i = 0; i < localStorage.length; i++) {
         //console.log(localStorage.getItem(localStorage.key(i)));
         //console.log(localStorage.key(i));
         htmlDiv.innerHTML += JSON.parse(localStorage.getItem(localStorage.key(i)));
+        
     }
     removeFromWatchlist();
 }
@@ -27,10 +32,11 @@ function removeFromWatchlist() {
     removeWatchlistButtons.forEach(button => {
         //console.log(button);
         button.addEventListener('click', function(e) {
-            const id = e.currentTarget.parentElement.id;
+            const id = e.currentTarget.parentElement.parentElement.parentElement.id;
             localStorage.removeItem(id);
             forEachKey(moviesWatchlist);
             location.reload();
+            
         });
     });
 }
